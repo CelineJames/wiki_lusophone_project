@@ -2,7 +2,7 @@
 
 Outreachy Round 32 contribution by **Itoro James**
 
-This repository contains the microtask submissions for the project **"Addressing the Lusophone Technological Wishlist"** — a Wikimedia Brasil initiative to improve tools and platforms for the Portuguese-speaking Wikimedia community.
+This repository contains the microtask submissions for the project **"Addressing the Lusophone Technological Wishlist"** a Wikimedia Brasil initiative to improve tools and platforms for the Portuguese-speaking Wikimedia community.
 
 ---
 
@@ -43,7 +43,7 @@ python3 Task2-Intern.py
 
 The Lusophone technological wishlist is a survey that identifies the most important technological needs of editors, readers and researchers of Wikimedia projects in Portuguese. This project aims to implement two of those community wishes:
 
-- **Wish #3** — implement a duplicate reference checker in the Visual Editor
-- **Wish #8** — add Wikidata support to wikiscore, allowing edit-a-thons and contests to count Wikidata contributions
+- **Wish #3**: implement a duplicate reference checker in the Visual Editor
+- **Wish #8**: add Wikidata support to wikiscore, allowing edit-a-thons and contests to count Wikidata contributions
 
 **Mentors:** Ederporto, Arcstur
