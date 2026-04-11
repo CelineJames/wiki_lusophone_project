@@ -1,10 +1,10 @@
 import csv
 import requests
+from concurrent.futures import ThreadPoolExecutor
 
 def get_status_code(url, timeout=10):
     try:
         response = requests.head(url, timeout=timeout, allow_redirects=True)
-        # fall back to GET
         if response.status_code == 405:
             response = requests.get(url, timeout=timeout, allow_redirects=True)
         return response.status_code
@@ -17,15 +17,17 @@ def get_status_code(url, timeout=10):
     except requests.exceptions.RequestException as e:
         return f"ERROR: {e}"
 
+def check_and_print(url):
+    status = get_status_code(url)
+    print(f"({status}) {url}")
+
 def main():
     with open("Task 2 - Intern.csv", newline='', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
-        for row in reader:
-            # Get first column value regardless of exact key name
-            url = list(row.values())[0].strip()
-            if url:
-                status = get_status_code(url)
-                print(f"({status}) {url}")
+        urls = [list(row.values())[0].strip() for row in reader if list(row.values())[0].strip()]
+
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        executor.map(check_and_print, urls)
 
 if __name__ == "__main__":
     main()
